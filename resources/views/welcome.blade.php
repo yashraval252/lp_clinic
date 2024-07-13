@@ -1,1 +1,1 @@
-@include('theme.app')
+@include('backend.app')

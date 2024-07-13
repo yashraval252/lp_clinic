@@ -10,7 +10,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-         @include('theme.header')
+         @include('backend.header')
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -665,7 +665,7 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        @include('theme.footer')
+        @include('backend.footer')
     </div>
     <!-- ./wrapper -->
     @include('scripts.footer_scripts')
