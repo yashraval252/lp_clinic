@@ -15,5 +15,8 @@ class Patient extends Model
         'phone',
         'appointment_date',
         'signature',
+        'user_id',
+        'status',
+        'token',
     ];
 }
