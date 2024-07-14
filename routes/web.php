@@ -9,4 +9,8 @@ Route::get('/', function () {
     return view('patient.form');
 });
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::post('/appointment', [AppointmentController::class, 'store']);
