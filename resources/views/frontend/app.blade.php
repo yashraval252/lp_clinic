@@ -8,41 +8,43 @@
     @include('scripts.header_scripts')
 </head>
 
-@if(Auth::id())
-<body class="hold-transition sidebar-mini layout-fixed">
-@else
-<body class="sidebar-collapse">
-@endif
-    <div class="wrapper">
-         @include('frontend.header')
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
+@if (Auth::id())
 
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                            @yield("content")
-                </div>
-                <!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
+    <body class="hold-transition sidebar-mini layout-fixed">
+    @else
+
+        <body class="sidebar-collapse">
+@endif
+<div class="wrapper">
+    @include('frontend.header')
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Dashboard</h1>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
         </div>
-        <!-- /.content-wrapper -->
-        @include('frontend.footer')
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                @yield('content')
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
     </div>
-    <!-- ./wrapper -->
-    @include('scripts.footer_scripts')
+    <!-- /.content-wrapper -->
+    @include('frontend.footer')
+</div>
+<!-- ./wrapper -->
+@include('scripts.footer_scripts')
 </body>
 
 </html>
