@@ -1,5 +1,10 @@
 @extends('frontend.app')
 @section('content')
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="row">
         <div class="col-md-12">
             <div class="card card-primary">
@@ -26,6 +31,15 @@
                             <label for="appointment_date">Appointment Date:</label>
                             <input type="datetime-local" id="appointment_date" name="appointment_date" class="form-control"
                                 required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clinician">Select Clinician</label>
+                            <select class="form-control select2" name="user_id" id="clinician" style="width: 100%;">
+                                <option value="" selected> Select </option>
+                                @foreach(App\Models\User::all() as $user)
+                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="signature">Signature:</label>
