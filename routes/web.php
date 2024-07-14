@@ -14,3 +14,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/appointment', [AppointmentController::class, 'store']);
+
+Route::get('/appointment/status/{token}', [AppointmentController::class, 'checkStatus']);
+
