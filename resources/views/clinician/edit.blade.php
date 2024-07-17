@@ -38,13 +38,16 @@
                                 <td>{{ $patient->phone }}</td>
                                 <td>{{ $patient->appointment_date }}</td>
                                 <td>
+                                    @php
+                                    $status = $patient->status;
+                                    @endphp
                                     <div class="form-group">
                                         <select class="form-control select2" name="status" id="status"
                                             style="width: 100%;">
-                                            <option value="" selected> Select </option>
-                                            <option value="confirmed">Confirmed</option>
-                                            <option value="cancelled">Cancelled</option>
-                                            <option value="completed">Completed</option>
+                                            <option value="pending" @if($status == "pending") {{'selected'}}@endif>Pending</option>
+                                            <option value="confirmed" @if($status == "confirmed") {{'selected'}}@endif>Confirmed</option>
+                                            <option value="cancelled" @if($status == "cancelled") {{'selected'}}@endif>Cancelled</option>
+                                            <option value="completed" @if($status == "completed") {{'selected'}}@endif>Completed</option>
                                         </select>
                                     </div>
                                 </td>
@@ -57,11 +60,6 @@
             <!-- /.card -->
         </div>
     </div>
-    <!-- /.row -->
-@endsection
-
-@section('scripts')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#status').change(function() {
@@ -89,4 +87,7 @@
             });
         });
     </script>
+    <!-- /.row -->
 @endsection
+    
+
