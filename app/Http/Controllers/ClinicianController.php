@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use Spatie\GoogleCalendar\Event;
 
 class ClinicianController extends Controller
 {
@@ -59,6 +60,11 @@ class ClinicianController extends Controller
         $patient = Patient::where("id",$id)->update([
             "status" => $request->status
         ]);
+        Event::create([
+            'name' => 'A new event',
+            'startDateTime' => \Carbon\Carbon::now(),
+            'endDateTime' => \Carbon\Carbon::now()->addHour(),
+         ]);
         return response()->json(['message' => 'Appointment updated successfully.']);
     }
 
